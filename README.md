@@ -1,6 +1,6 @@
 # springboot-redis
 springboot使用redis作为缓存，期间遇到的问题和错误总结在这里。
-
+- - -
 1. java.lang.IllegalArgumentException: DefaultSerializer requires a Serializable payload but received an object of type [org.apache.catalina.connector.RequestFacade].
 
 原因：demo为了简单起见，直接在Controller层使用了@Cacheable。
@@ -22,4 +22,5 @@ springboot使用redis作为缓存，期间遇到的问题和错误总结在这�
 回到上面的代码中，不难发现我们方法使用了HttpServletRequest对象作为参数，只有这一个参数，所以使用该参数作为Key。存储该Key之前需要将其序列化，而spring-data-redis对Key默认使用String序列化，就会报参数错误，默认序列化需要的对象类型不符合。
 
 解决办法：删除方法中的参数HttpServletRequest对象，使用0作为Key。最好的办法是乖乖在service或dao层使用@Cacheable注解吧。
+- - -
 
