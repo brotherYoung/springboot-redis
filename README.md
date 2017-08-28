@@ -1,5 +1,7 @@
 # springboot-redis
 springboot使用redis作为缓存，期间遇到的问题和错误总结在这里。
+
+springboot强大就强大在autoconfigure，我们可以在org.springframework.boot.autofigure.data.redis包中找到springboot自动帮我们完成的一些bean配置，重点有CacheManager，StringTemplate，RedisTemplate，所以此demo中并没有重写这些bean的实现，当然如果想自己定制这些bean的话，就得重写了。
 - - -
 1. java.lang.IllegalArgumentException: DefaultSerializer requires a Serializable payload but received an object of type [org.apache.catalina.connector.RequestFacade].
 
