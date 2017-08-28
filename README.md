@@ -1,7 +1,7 @@
 # springboot-redis
 springboot使用redis作为缓存，期间遇到的问题和错误总结在这里。
 
-1.java.lang.IllegalArgumentException: DefaultSerializer requires a Serializable payload but received an object of type [org.apache.catalina.connector.RequestFacade].
+1. java.lang.IllegalArgumentException: DefaultSerializer requires a Serializable payload but received an object of type [org.apache.catalina.connector.RequestFacade].
 
 原因：demo为了简单起见，直接在Controller层使用了@Cacheable。
 
