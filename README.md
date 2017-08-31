@@ -3,7 +3,7 @@ springboot使用redis作为缓存，期间遇到的问题和错误总结在这�
 
 springboot强大就强大在autoconfigure，我们可以在org.springframework.boot.autofigure.data.redis包中找到springboot自动帮我们完成的一些bean配置，重点有CacheManager，StringTemplate，RedisTemplate，所以此demo中并没有重写这些bean的实现，当然如果想自己定制这些bean的话，就得重写了。
 
-NOTE:
+**NOTE:**
 
 + 要缓存的 Java 对象必须实现 Serializable 接口，因为 Spring 会将对象先序列化再存入 Redis，比如本文中的 com.defonds.bdp.city.bean.City 类，如果不实现 Serializable 的话将会遇到类似这种错误：nested exception is java.lang.IllegalArgumentException: DefaultSerializer requires a Serializable payload but received an object of type [com.defonds.bdp.city.bean.City]]。
 + 缓存的生命周期我们可以配置，然后托管 Spring CacheManager，不要试图通过 redis-cli 命令行去管理缓存。
