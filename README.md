@@ -11,7 +11,7 @@ NOTE:
 + 缓存适用于读多写少的场合，查询时缓存命中率很低、写操作很频繁等场景不适宜用缓存。
 
 - - -
-1. java.lang.IllegalArgumentException: DefaultSerializer requires a Serializable payload but received an object of type [org.apache.catalina.connector.RequestFacade].
+**java.lang.IllegalArgumentException: DefaultSerializer requires a Serializable payload but received an object of type [org.apache.catalina.connector.RequestFacade].**
 
 原因：demo为了简单起见，直接在Controller层使用了@Cacheable，方法中传入一个参数，参数作为Key无法被序列化。
 
