@@ -5,7 +5,7 @@ springboot强大就强大在autoconfigure，我们可以在org.springframework.b
 
 **NOTE:**
 
-+ 要缓存的 Java 对象必须实现 Serializable 接口，因为 Spring 会将对象先序列化再存入 Redis，比如本文中的 com.defonds.bdp.city.bean.City 类，如果不实现 Serializable 的话将会遇到类似这种错误：nested exception is java.lang.IllegalArgumentException: DefaultSerializer requires a Serializable payload but received an object of type [com.defonds.bdp.city.bean.City]]。
++ 要缓存的 Java 对象必须实现 Serializable 接口，因为 Spring 会将对象先序列化再存入 Redis，如果不实现 Serializable 的话将会遇到类似这种错误：nested exception is java.lang.IllegalArgumentException: DefaultSerializer requires a Serializable payload but received an object of type [com.defonds.bdp.city.bean.City]]。
 + 缓存的生命周期我们可以配置，然后托管 Spring CacheManager，不要试图通过 redis-cli 命令行去管理缓存。
 + CacheManager 必须设置缓存过期时间，否则缓存对象将永不过期，这样做的原因如上，避免一些野数据“永久保存”。此外，设置缓存过期时间也有助于资源利用最大化，因为缓存里保留的永远是热点数据。
 + 缓存适用于读多写少的场合，查询时缓存命中率很低、写操作很频繁等场景不适宜用缓存。
